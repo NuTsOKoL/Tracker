@@ -50,6 +50,11 @@
 			path = TrackerViewController;
 			sourceTree = "<group>";
 		};
+		041D62332CE106BE00368811 /* Helpers */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		04CCE6CD2CE0CB2B008F9DEC /* Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -103,6 +108,7 @@
 		04CCE6C22CE0CB2B008F9DEC = {
 			isa = PBXGroup;
 			children = (
+				041D62332CE106BE00368811 /* Helpers */,
 				041D621F2CE0E25A00368811 /* StatViewController */,
 				041D62212CE0E26400368811 /* TrackerViewController */,
 				04CCE71B2CE0D4D0008F9DEC /* TabBar */,
@@ -141,6 +147,7 @@
 			fileSystemSynchronizedGroups = (
 				041D621F2CE0E25A00368811 /* StatViewController */,
 				041D62212CE0E26400368811 /* TrackerViewController */,
+				041D62332CE106BE00368811 /* Helpers */,
 				04CCE6CD2CE0CB2B008F9DEC /* Tracker */,
 				04CCE71B2CE0D4D0008F9DEC /* TabBar */,
 			);
