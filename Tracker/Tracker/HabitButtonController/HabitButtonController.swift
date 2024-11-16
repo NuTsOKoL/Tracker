@@ -24,7 +24,11 @@ final class HabitButtonController: UIViewController {
         return textField
     }()
     
-    
+    private let habitTableView: UITableView = {
+        let tableView = UITableView()
+        
+        return tableView
+    }()
     
     
     
@@ -43,6 +47,7 @@ final class HabitButtonController: UIViewController {
         [
         habitLabel,
         habitTextField,
+//        habitTableView,
         ].forEach(view.addSubview)
     }
     
@@ -56,11 +61,11 @@ final class HabitButtonController: UIViewController {
             habitTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             habitTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             habitTextField.heightAnchor.constraint(equalToConstant: 75),
-//
-//            trackerIrregularEventsButton.topAnchor.constraint(equalTo: trackerHabitButton.bottomAnchor, constant: 16),
-//            trackerIrregularEventsButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-//            trackerIrregularEventsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-//            trackerIrregularEventsButton.heightAnchor.constraint(equalToConstant: 60),
+
+//            habitTableView.topAnchor.constraint(equalTo: habitTextField.bottomAnchor, constant: 16),
+//            habitTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+//            habitTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+//            habitTableView.heightAnchor.constraint(equalToConstant: 60),
             
        ])
     }
