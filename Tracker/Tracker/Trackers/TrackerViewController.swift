@@ -124,3 +124,6 @@ final class TrackerViewController: UIViewController {
         present(navigationController, animated: true)
     }
 }
+extension Notification.Name {
+    static let didCreateNewTracker = Notification.Name("didCreateNewTracker")
+}
