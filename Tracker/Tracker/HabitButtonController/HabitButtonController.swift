@@ -1,6 +1,6 @@
 import UIKit
 
-final class HabitButtonController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+final class HabitButtonController: AddTrackerFlowViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let habitLabel: UILabel = {
         let label = UILabel()
@@ -78,15 +78,8 @@ final class HabitButtonController: UIViewController, UITableViewDataSource, UITa
         return view
     }()
     
-    private let createButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Создать", for: .normal)
-        button.backgroundColor = .systemGray
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 12
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(didTapCreateButton), for: .touchUpInside)
-        return button
+    private lazy var createButton: ActionButton = {
+        ActionButton(title: "Создать", target: self, action: #selector(didTapCreateButton))
     }()
     
     private let cancelButton: UIButton = {
@@ -124,6 +117,25 @@ final class HabitButtonController: UIViewController, UITableViewDataSource, UITa
     weak var delegate: ScheduleViewControllerDelegate?
     
     var onTrackerCreated: ((Tracker) -> Void)?
+    
+    
+    private let isRegular: Bool
+    init(isRegular: Bool) {
+        self.isRegular = isRegular
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    private func presentScheduleViewController() {
+        let schedule = ScheduleViewController()
+        schedule.delegate = self
+        present(schedule, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -218,14 +230,13 @@ final class HabitButtonController: UIViewController, UITableViewDataSource, UITa
             buttonContainerView.heightAnchor.constraint(equalToConstant: 66),
             
             cancelButton.leadingAnchor.constraint(equalTo: buttonContainerView.leadingAnchor),
-            cancelButton.topAnchor.constraint(equalTo: buttonContainerView.topAnchor, constant: 16), // Отступ от верхнего края контейнера
+            cancelButton.topAnchor.constraint(equalTo: buttonContainerView.topAnchor, constant: 16),
             cancelButton.bottomAnchor.constraint(equalTo: buttonContainerView.bottomAnchor),
             cancelButton.trailingAnchor.constraint(equalTo: createButton.leadingAnchor, constant: -16),
             cancelButton.widthAnchor.constraint(equalTo: createButton.widthAnchor),
             
-            // Констрейнты для `createButton`
             createButton.trailingAnchor.constraint(equalTo: buttonContainerView.trailingAnchor),
-            createButton.topAnchor.constraint(equalTo: buttonContainerView.topAnchor, constant: 16), // Отступ от верхнего края контейнера
+            createButton.topAnchor.constraint(equalTo: buttonContainerView.topAnchor, constant: 16), 
             createButton.bottomAnchor.constraint(equalTo: buttonContainerView.bottomAnchor)
             
        ])

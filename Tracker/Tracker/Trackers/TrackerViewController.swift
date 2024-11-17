@@ -114,7 +114,6 @@ final class TrackerViewController: UIViewController {
                              action: #selector(trackerCreateViewController),
                              for: .touchUpInside)
     }
-    
 }
 
 @objc extension TrackerViewController {
@@ -124,6 +123,7 @@ final class TrackerViewController: UIViewController {
         present(navigationController, animated: true)
     }
 }
+
 extension Notification.Name {
     static let didCreateNewTracker = Notification.Name("didCreateNewTracker")
 }
