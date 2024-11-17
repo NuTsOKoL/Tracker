@@ -38,7 +38,7 @@ final class TrackerCreateViewController: UIViewController {
     
     @objc private func buttonDidTap(_ sender: UIButton) {
         let isRegular = sender == regularTrackerButton
-        let viewController = HabitButtonController(isRegular: isRegular)
+        let viewController = NewTrackerViewController(isRegular: isRegular)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
