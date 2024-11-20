@@ -19,5 +19,8 @@ final class TabBarController: UITabBarController {
         
         
        viewControllers = [navigationController, statViewController]
+        
+        tabBar.layer.borderWidth = 0.5
+        tabBar.layer.borderColor = UIColor.ypGray.cgColor
     }
 }
