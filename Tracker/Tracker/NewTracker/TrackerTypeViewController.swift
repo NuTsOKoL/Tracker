@@ -1,7 +1,6 @@
 import UIKit
 
-final class TrackerCreateViewController: UIViewController {
-    
+final class TrackerTypeViewController: AddTrackerFlowViewController {
     private lazy var regularTrackerButton: ActionButton = {
         ActionButton(title: "Привычка", target: self, action: #selector(buttonDidTap))
     }()
@@ -9,7 +8,7 @@ final class TrackerCreateViewController: UIViewController {
     private lazy var irregularTrackerButton: ActionButton = {
         ActionButton(title: "Нерегулярное событие", target: self, action: #selector(buttonDidTap))
     }()
-
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [regularTrackerButton, irregularTrackerButton])
         stackView.axis = .vertical
@@ -23,7 +22,6 @@ final class TrackerCreateViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(stackView)
-        view.backgroundColor = .white
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

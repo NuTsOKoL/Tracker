@@ -408,10 +408,7 @@ extension NewTrackerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: sectionLayout.topInset,
-                            left: sectionLayout.leftInset,
-                            bottom: sectionLayout.bottomInset,
-                            right: sectionLayout.rightInset)
+        return UIEdgeInsets(top: sectionLayout.topInset, left: sectionLayout.leftInset, bottom: sectionLayout.bottomInset, right: sectionLayout.rightInset)
     }
     
     func collectionView(_ collectionView: UICollectionView,

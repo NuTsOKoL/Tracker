@@ -1,10 +1,5 @@
 import UIKit
 
-protocol ScheduleViewControllerDelegate: AnyObject {
-    func didSelectSchedule(_ selectedDays: [Weekday])
-}
-
-
 final class ScheduleViewController: AddTrackerFlowViewController {
     private lazy var tableView: BaseTable = {
         let table = BaseTable(frame: .zero, style: .grouped)
@@ -13,12 +8,9 @@ final class ScheduleViewController: AddTrackerFlowViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
-   
     private lazy var completeButton: ActionButton = {
         ActionButton(title: "Готово", target: self, action: #selector(completeButtonDidTap))
     }()
-    
-    weak var delegate: ScheduleViewControllerDelegate?
     private var schedule: [(Weekday, Bool)] = []
     private let cellReuseID = "ScheduleCell"
     
